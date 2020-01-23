@@ -12,8 +12,7 @@ const Translator: React.FC<any> = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <div className="">
-      {/* add flexbox styles for spacing */}
+    <>
       <AppBar position="static" className="">
         <Toolbar>
           <Typography variant="h5" className="">
@@ -21,27 +20,35 @@ const Translator: React.FC<any> = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <TextField
-        autoFocus
-        multiline
-        value={message}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          setMessage(event.target.value);
-        }}
-        label="Message"
-        variant="outlined"
-        className=""
-      />
-      <Fab
-        onClick={() => setMessage(translate(message))}
-        variant="extended"
-        color="primary"
-        aria-label="add"
-        className=""
-      >
-        Translate!
-      </Fab>
-    </div>
+      <div className="form-container">
+        {/* add flexbox styles for spacing */}
+        <TextField
+          autoFocus
+          multiline
+          value={message}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {
+            setMessage(event.target.value);
+          }}
+          label="Message"
+          variant="outlined"
+          // className="form-row"
+          classes={{
+            root: "form-row"
+          }}
+        />
+        <Fab
+          onClick={() => setMessage(translate(message))}
+          variant="extended"
+          color="primary"
+          aria-label="add"
+          classes={{
+            root: "form-row form-button"
+          }}
+        >
+          Translate!
+        </Fab>
+      </div>
+    </>
   );
 };
 
