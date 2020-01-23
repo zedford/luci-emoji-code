@@ -1,3 +1,3 @@
 export const translate = (message: string) => {
-  return message;
+  return message + ".";
 };
