@@ -13,7 +13,12 @@ const Translator: React.FC<any> = () => {
 
   return (
     <>
-      <AppBar position="static" className="">
+      <AppBar
+        position="static"
+        classes={{
+          root: "color-change"
+        }}
+      >
         <Toolbar>
           <Typography variant="h5" className="">
             Luci's Emoji Code Translator
@@ -21,7 +26,6 @@ const Translator: React.FC<any> = () => {
         </Toolbar>
       </AppBar>
       <div className="form-container">
-        {/* add flexbox styles for spacing */}
         <TextField
           autoFocus
           multiline
@@ -31,9 +35,8 @@ const Translator: React.FC<any> = () => {
           }}
           label="Message"
           variant="outlined"
-          // className="form-row"
           classes={{
-            root: "form-row"
+            root: "form-row form-field"
           }}
         />
         <Fab
@@ -42,7 +45,7 @@ const Translator: React.FC<any> = () => {
           color="primary"
           aria-label="add"
           classes={{
-            root: "form-row form-button"
+            root: "form-row form-button color-change"
           }}
         >
           Translate!
