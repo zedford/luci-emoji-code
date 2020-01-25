@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Fab from "@material-ui/core/Fab";
 import { translate } from "../logic/translations";
 
-import "../App.css";
+import "../App.scss";
 
 const Translator: React.FC<any> = () => {
   const [message, setMessage] = useState("");
@@ -37,6 +37,9 @@ const Translator: React.FC<any> = () => {
           variant="outlined"
           classes={{
             root: "form-row form-field"
+          }}
+          InputProps={{
+            className: "form-field-input"
           }}
         />
         <Fab

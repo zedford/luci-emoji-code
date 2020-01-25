@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import Translator from "./components/translator";
 
 const App: React.FC = () => {

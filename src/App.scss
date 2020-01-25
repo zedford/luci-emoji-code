@@ -1,0 +1,65 @@
+@mixin ombre($style) {
+  animation-name: ombre-#{$style};
+  animation-duration: 15s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+
+  @keyframes ombre-#{$style} {
+    8% {
+      #{$style}: red;
+    }
+    25% {
+      #{$style}: orange;
+    }
+    43% {
+      #{$style}: goldenrod;
+    }
+    60% {
+      #{$style}: green;
+    }
+    75% {
+      #{$style}: blue;
+    }
+    90% {
+      #{$style}: purple;
+    }
+    100% {
+      #{$style}: red;
+    }
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+
+  .form-row {
+    margin-top: 20px !important;
+  }
+
+  .form-field {
+    width: 100%;
+
+    .MuiFormLabel-root {
+      color: purple !important;
+    }
+
+    .MuiInputBase-root {
+      color: green !important;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      @include ombre(border-color);
+    }
+
+    .form-button {
+      max-width: 145px;
+    }
+  }
+}
+
+.color-change {
+  @include ombre(background-color);
+}
