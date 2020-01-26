@@ -1,4 +1,5 @@
 @mixin ombre($style) {
+  #{$style}: red;
   animation-name: ombre-#{$style};
   animation-duration: 15s;
   animation-timing-function: ease;
