@@ -33,6 +33,12 @@ const Translator: React.FC<any> = () => {
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setMessage(event.target.value);
           }}
+          onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) => {
+            if (event.keyCode === 13) {
+              //  enter key
+              setMessage(translate(message));
+            }
+          }}
           label="Message"
           variant="outlined"
           classes={{
