@@ -5,6 +5,8 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'build')));
 
+app.disable('x-powered-by');
+
 app.get('/ping', (req, res) => {
   return res.send('pong')
 });
