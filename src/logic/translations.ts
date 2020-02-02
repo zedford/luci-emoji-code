@@ -39,8 +39,8 @@ var emojiDictionary: { [key: string]: string } = {
   "😮": "s",
   t: "😚",
   "😚": "t",
-  u: "🙃",
-  "🙃": "u",
+  u: "😜",
+  "😜": "u",
   v: "😂",
   "😂": "v",
   w: "😋",
@@ -64,7 +64,7 @@ var emojiDictionary: { [key: string]: string } = {
 };
 
 export const translate = (message: string): string => {
-  let characterList = [...message];
+  let characterList = [...message.toLowerCase()];
   let translatedCharacterList: string[] = [];
 
   characterList.forEach(character => {
@@ -74,8 +74,8 @@ export const translate = (message: string): string => {
   return translatedCharacterList.join("");
 };
 
-export const translate_daddys = (message: string): string =>
-  [...message].reduce(
+export const translateDaddys = (message: string): string =>
+  [...message.toLowerCase()].reduce(
     (translation, current) => translation + (emojiDictionary[current] || ""),
     ""
   );

@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useRef } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -10,6 +10,7 @@ import "../App.scss";
 
 const Translator: React.FC<any> = () => {
   const [message, setMessage] = useState("");
+  let textAreaRef = useRef<HTMLInputElement>(null);
 
   return (
     <>
@@ -27,6 +28,7 @@ const Translator: React.FC<any> = () => {
       </AppBar>
       <div className="form-container">
         <TextField
+          inputRef={textAreaRef}
           autoFocus
           multiline
           value={message}
@@ -52,12 +54,28 @@ const Translator: React.FC<any> = () => {
           onClick={() => setMessage(translate(message))}
           variant="extended"
           color="primary"
-          aria-label="add"
+          aria-label="translate"
           classes={{
             root: "form-row form-button color-change"
           }}
         >
           Translate!
+        </Fab>
+        <Fab
+          onClick={() => {
+            if (textAreaRef.current) {
+              textAreaRef.current.select();
+              document.execCommand("copy");
+            }
+          }}
+          variant="extended"
+          color="primary"
+          aria-label="copy"
+          classes={{
+            root: "form-row form-button color-change"
+          }}
+        >
+          Copy
         </Fab>
       </div>
     </>
