@@ -4,6 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Fab from "@material-ui/core/Fab";
+import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyTwoTone";
 import { translate } from "../logic/translations";
 
 import "../App.scss";
@@ -50,33 +51,36 @@ const Translator: React.FC<any> = () => {
             className: "form-field-input"
           }}
         />
-        <Fab
-          onClick={() => setMessage(translate(message))}
-          variant="extended"
-          color="primary"
-          aria-label="translate"
-          classes={{
-            root: "form-row form-button color-change"
-          }}
-        >
-          Translate!
-        </Fab>
-        <Fab
-          onClick={() => {
-            if (textAreaRef.current) {
-              textAreaRef.current.select();
-              document.execCommand("copy");
-            }
-          }}
-          variant="extended"
-          color="primary"
-          aria-label="copy"
-          classes={{
-            root: "form-row form-button color-change"
-          }}
-        >
-          Copy
-        </Fab>
+        <div className="form-container-row">
+          <Fab
+            onClick={() => setMessage(translate(message))}
+            variant="extended"
+            color="primary"
+            aria-label="translate"
+            classes={{
+              root: "form-row form-button color-change"
+            }}
+          >
+            Translate!
+          </Fab>
+          <Fab
+            onClick={() => {
+              if (textAreaRef.current) {
+                textAreaRef.current.select();
+                document.execCommand("copy");
+              }
+            }}
+            variant="extended"
+            color="primary"
+            aria-label="copy"
+            classes={{
+              root: "form-row form-button color-change"
+            }}
+          >
+            <FileCopyTwoToneIcon />
+            Copy
+          </Fab>
+        </div>
       </div>
     </>
   );
