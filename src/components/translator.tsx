@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Fab from "@material-ui/core/Fab";
 import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyTwoTone";
+import TransformIcon from "@material-ui/icons/Transform";
 import { translate } from "../logic/translations";
 
 import "../App.scss";
@@ -61,6 +62,7 @@ const Translator: React.FC<any> = () => {
               root: "form-row form-button color-change"
             }}
           >
+            <TransformIcon />
             Translate!
           </Fab>
           <Fab
